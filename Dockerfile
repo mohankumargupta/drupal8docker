@@ -34,6 +34,7 @@ ADD createdatabase.sh /createdatabase.sh
 RUN chmod 777 /createdatabase.sh
 RUN /createdatabase.sh
 ADD 000-default /etc/apache2/conf.d/sites-available/000-default
+RUN cd /etc/apache2/mods-enabled  && ln -s ../mods-available/rewrite.load
 
 EXPOSE 22 80
 CMD /usr/bin/supervisord -n 
