@@ -7,4 +7,6 @@ mysql -u root -e "CREATE DATABASE drupal; GRANT ALL ON drupal.* TO 'root'@'local
 cd /var/www
 drush site-install standard -y --account-name=admin --account-pass=admin --db-url="mysql://root@localhost:3306/drupal"
 echo "hopefully does this after"
+drush cr
+drush cr
 exit 0
