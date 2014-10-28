@@ -56,5 +56,8 @@ RUN cd /etc/apache2/mods-enabled  && ln -s ../mods-available/rewrite.load    #a2
 ADD drushmake.sh /drushmake.sh
 RUN chmod 777 /drushmake.sh
 RUN /drushmake.sh
-EXPOSE 22 80
+RUN apt-get -y install php5-xdebug ;\
+    echo "xdebug.remote_enable=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.remote_connect_back=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;
+EXPOSE 22 80 9000
 CMD ["/usr/bin/supervisord"]
