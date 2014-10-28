@@ -1,6 +1,9 @@
 #!/bin/bash
-/usr/bin/supervisord
-sleep 30
+ps aux|grep mysql
+#/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+apache2ctl start
+service mysql start
+
 ps aux|grep mysql
 echo "create database drupal..."
 mysql -u root -e "CREATE DATABASE drupal; GRANT ALL ON drupal.* TO 'root'@'localhost'"
