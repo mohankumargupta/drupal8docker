@@ -1,0 +1,5 @@
+name: mohan
+type: module
+description: This will get me used to the Drupal 8 way and also dip my feet into angularjs
+core: 8.x
+package: Other
