@@ -59,5 +59,9 @@ RUN /drushmake.sh
 RUN apt-get -y install php5-xdebug ;\
     echo "xdebug.remote_enable=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
     echo "xdebug.remote_connect_back=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;
+RUN apt-get -y install nano net-tools npm
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+RUN npm install -g yo generator-angular grunt-cli bower  
+RUN bower update
 EXPOSE 22 80 9000
 CMD ["/usr/bin/supervisord"]

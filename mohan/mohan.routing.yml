@@ -1,7 +1,7 @@
 mohan.default_controller_hello:
-  path: 'mohan/hello/{name}'
+  path: '/mohan/hello'
   defaults:
-    _content: '\Drupal\mohan\Controller\DefaultController::hello'
+    _controller: '\Drupal\mohan\Controller\DefaultController::hello'
     _title: 'mohan Title'
   requirements:
     _permission: 'access content'
