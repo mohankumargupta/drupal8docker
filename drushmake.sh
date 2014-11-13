@@ -3,7 +3,7 @@
 apache2ctl start
 service mysql start
 cd /var/www
-drush dl drupalmoduleupgrader-8.x-0.6
+drush dl drupalmoduleupgrader-8.x-0.7
 drush en -y drupalmoduleupgrader
 cd /var/www
 COMPOSER_BIN_DIR=bin composer require --dev drupal/console:@stable

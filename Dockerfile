@@ -38,6 +38,7 @@ RUN \
 RUN ln -sf /.composer/vendor/drush/drush/drush /usr/bin/drush  
 #RUN rm -rf /var/www/ ; cd /var ; drush dl -d -y --destination="/var/www" --drupal-project-rename="/var/www"  drupal-8.0.0-beta1 
 RUN drush --version
+RUN true
 RUN drush dl -y drupal-8 --destination=/var --drupal-project-rename=www -v
 #drush sql-create --db-su=root --db-su-pw=root --db-url="mysql://root:root@127.0.0.1/drupal8" --yes
 #drush site-install standard --db-url="mysql://root:root@127.0.0.1/drupal8" --account-name=admin -account-pass=password
@@ -57,11 +58,17 @@ ADD drushmake.sh /drushmake.sh
 RUN chmod 777 /drushmake.sh
 RUN /drushmake.sh
 RUN apt-get -y install php5-xdebug ;\
-    echo "xdebug.remote_enable=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
-    echo "xdebug.remote_connect_back=on" >> /etc/php5/apache2/conf.d/xdebug.ini ;
+    echo "xdebug.remote_enable=1" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.remote_connect_back=1" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.remote_autostart=0" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.remote_port=9002" /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.idekey=PHPStorm" >> /etc/php5/apache2/conf.d/xdebug.ini ;\
+    echo "xdebug.remote_host=172.17.42.1" >> /etc/php5/apache2/conf.d/xdebug.ini ;
+
 RUN apt-get -y install nano net-tools npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN npm install -g yo generator-angular grunt-cli bower  
-RUN bower update
-EXPOSE 22 80 9000
+# RUN bower --allow-root  update
+RUN chmod -R 777 /var/www/sites/default/files
+EXPOSE 22 80
 CMD ["/usr/bin/supervisord"]
