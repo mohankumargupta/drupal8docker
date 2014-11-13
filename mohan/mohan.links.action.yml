@@ -1,0 +1,12 @@
+default_entity.add:
+  route_name: 'default_entity.add'
+  title: 'Add DefaultEntity'
+  appears_on:
+    - default_entity.list
+
+default_content_entity.add:
+  route_name: default_content_entity.add
+  title: 'Add DefaultContentEntity'
+  appears_on:
+    - default_content_entity.list
+    - default_content_entity.view

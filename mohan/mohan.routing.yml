@@ -1,0 +1,104 @@
+mohan.default_controller_hello:
+  path: '/mohan/hello'
+  defaults:
+    _controller: '\Drupal\mohan\Controller\DefaultController::hello'
+    _title: 'mohan Title'
+  requirements:
+    _permission: 'access content'
+
+mohan.default_controller_hello:
+  path: 'mohan/hello/{name}'
+  defaults:
+    _content: '\Drupal\mohan\Controller\DefaultController::hello'
+    _title: 'mohan Title'
+  requirements:
+    _permission: 'access content'
+
+# DefaultEntity routing definition
+default_entity.list:
+  path: '/admin/config/system/default_entity'
+  defaults:
+    _entity_list: 'default_entity'
+    _title: 'DefaultEntity Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+default_entity.add:
+  path: '/admin/config/system/default_entity/add'
+  defaults:
+    _entity_form: 'default_entity.add'
+    _title: 'Add DefaultEntity'
+  requirements:
+    _permission: 'administer site configuration'
+
+default_entity.edit:
+  path: '/admin/config/system/default_entity/{default_entity}'
+  defaults:
+    _entity_form: 'default_entity.edit'
+    _title: 'Edit DefaultEntity'
+  requirements:
+    _permission: 'administer site configuration'
+
+default_entity.delete:
+  path: '/admin/config/system/default_entity/{default_entity}/delete'
+  defaults:
+    _entity_form: 'default_entity.delete'
+    _title: 'Delete DefaultEntity'
+  requirements:
+    _permission: 'administer site configuration'
+# DefaultContentEntity routing definition
+default_content_entity.view:
+  path: '/admin/default_content_entity/{default_content_entity}'
+  defaults:
+    _entity_view: 'default_content_entity'
+    _title: 'DefaultContentEntity Content'
+  requirements:
+    _entity_access: 'default_content_entity.view'
+
+default_content_entity.list:
+  path: '/admin/default_content_entity'
+  defaults:
+    _entity_list: 'default_content_entity'
+    _title: 'DefaultContentEntity List'
+  requirements:
+    _permission: 'view DefaultContentEntity entity'
+
+default_content_entity.add:
+  path: '/admin/default_content_entity/add'
+  defaults:
+    _entity_form: default_content_entity.add
+    _title: 'Add DefaultContentEntity'
+  requirements:
+    _entity_create_access: 'default_content_entity'
+
+default_content_entity.edit:
+  path: '/admin/default_content_entity/{default_content_entity}/edit'
+  defaults:
+    _entity_form: default_content_entity.edit
+    _title: 'Edit DefaultContentEntity'
+  requirements:
+    _entity_access: 'default_content_entity.edit'
+
+default_content_entity.delete:
+  path: '/admin/default_content_entity/{default_content_entity}/delete'
+  defaults:
+    _entity_form: default_content_entity.delete
+    _title: 'Delete DefaultContentEntity'
+  requirements:
+    _entity_access: 'default_content_entity.delete'
+
+default_content_entity.settings:
+  path: 'admin/structure/default_content_entity'
+  defaults:
+   _form: '\Drupal\mohan\Entity\Form\DefaultContentEntitySettingsForm'
+   _title: 'DefaultContentEntity Settings'
+  requirements:
+    _permission: 'administer DefaultContentEntity entity'
+mohan.default_form_form:
+  path: '/mohan/settings/DefaultFormForm'
+  defaults:
+    _form: '\Drupal\mohan\Form\DefaultFormForm'
+    _title: 'mohan DefaultFormForm Form'
+  requirements:
+    _permission: 'access administration pages'
+

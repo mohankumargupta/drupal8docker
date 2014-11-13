@@ -1,0 +1,4 @@
+services:
+  mohan.default:
+    class: Drupal\mohan\MohanService
+    arguments: ["@state"]

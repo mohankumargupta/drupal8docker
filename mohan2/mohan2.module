@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains mohan2.module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+
+function mohan2_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name) {
+    // Main module help for the mohan2 module.
+    case 'help.page.mohan2':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Another Mohan Module') . '</p>';
+      return $output;
+    break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+
+function mohan2_theme()
+{
+  $theme = [];
+
+  return $theme;
+}

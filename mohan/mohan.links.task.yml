@@ -1,0 +1,20 @@
+# DefaultContentEntity routing definition
+default_content_entity.settings_tab:
+  route_name: default_content_entity.settings
+  title: 'Settings'
+  base_route: default_content_entity.settings
+
+default_content_entity.view:
+  route_name: default_content_entity.view
+  base_route: default_content_entity.view
+  title: 'View'
+
+default_content_entity.edit:
+  route_name: default_content_entity.edit
+  base_route: default_content_entity.view
+  title: Edit
+
+default_content_entity.delete_confirm:
+  route_name:  default_content_entity.delete
+  base_route:  default_content_entity.view
+  title: Delete

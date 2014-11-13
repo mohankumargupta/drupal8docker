@@ -1,0 +1,11 @@
+# DefaultContentEntity menu items definition
+default_content_entity.list:
+  title: 'DefaultContentEntity: Listing'
+  route_name: default_content_entity.list
+  description: 'List DefaultContentEntity'
+
+default_content_entity.admin.structure.settings:
+  title: DefaultContentEntity Settings
+  description: 'Configure DefaultContentEntity entity'
+  route_name:  default_content_entity.settings
+  parent: system.admin_structure
